@@ -1,9 +1,17 @@
-let a = 10;
-let b = 20;
-let c;
+let array = [1, 5, 2, 6, 3, 7, 4];
+let commands = [
+  [2, 5, 3],
+  [4, 4, 1],
+  [1, 7, 3],
+];
 
-c = a;
-a = b;
-b = c;
+function solution(array, commands) {
+  let answer = commands.map((command) => {
+    return array.slice(command[0] - 1, command[1]).sort(function (a, b) {
+      return a - b;
+    })[command[2] - 1];
+  });
+  return answer;
+}
 
-console.log(a, b, c);
+console.log(solution(array, commands));
